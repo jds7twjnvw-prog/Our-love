@@ -209,30 +209,23 @@
         <!-- Item 1 -->
         <div class="memory-card" style="--rotate: -2deg;">
             <!-- Link de imagem aleatória (Unsplash) - Substitua pelo seu link real -->
-            <img src="https://images.unsplash.com/photo-1518199266791-5375a831988b?auto=format&fit=crop&w=500&q=80" alt="Momento 1">
-            <div class="memory-text">A primeira vez que nos vimos</div>
-            <span class="memory-date">15 de Fev</span>
+            <img src="https://married-maroon-r5hwzc1n.edgeone.app/IMG_3312.jpeg" alt="Momento 1">
+            <div class="memory-text">O "eu gosto de você"</div>
+            <span class="memory-date">03 de Set</span>
         </div>
 
         <!-- Item 2 -->
         <div class="memory-card" style="--rotate: 3deg;">
-            <img src="https://images.unsplash.com/photo-1529335764857-3f1164d1d24d?auto=format&fit=crop&w=500&q=80" alt="Momento 2">
-            <div class="memory-text">Aquele dia no parque</div>
-            <span class="memory-date">10 de Abr</span>
+            <img src="https://due-scarlet-jmbt7cmw.edgeone.app/IMG_3313.jpeg" alt="Momento 2">
+            <div class="memory-text">"Namorados"</div>
+            <span class="memory-date">14 de Set</span>
         </div>
 
         <!-- Item 3 -->
         <div class="memory-card" style="--rotate: -1deg;">
-            <img src="https://images.unsplash.com/photo-1516589178581-6cdd6243273e?auto=format&fit=crop&w=500&q=80" alt="Momento 3">
-            <div class="memory-text">Noites de filme e piping</div>
-            <span class="memory-date">20 de Jul</span>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="memory-card" style="--rotate: 2deg;">
-            <img src="https://images.unsplash.com/photo-1523438885200-03548ab5cf71?auto=format&fit=crop&w=500&q=80" alt="Momento 4">
-            <div class="memory-text">A nossa viagem</div>
-            <span class="memory-date">15 de Ago</span>
+            <img src="https://romantic-olive-dojmhbox.edgeone.app/IMG_3314.jpeg" alt="Momento 3">
+            <div class="memory-text">O futuro</div>
+            <span class="memory-date">03 de Jul</span>
         </div>
 
     </section>
@@ -246,7 +239,7 @@
                 live forever."
             </p>
             <div class="signature">
-                Sempre seu,<br> [Seu Nome]
+                Sempre seu,<br> [Aziraphale]
             </div>
         </div>
     </section>
@@ -257,7 +250,7 @@
         // Data de início do namoro (Formato: Ano, Mês (0-11), Dia)
         // Mês no JavaScript começa do 0 (Janeiro) até 11 (Dezembro)
         // Exemplo: Para 14 de Fevereiro de 2023:
-        const dataNamoro = new Date(2023, 1, 14); 
+        const dataNamoro = new Date(2025, 9, 14); 
 
         function atualizarContador() {
             const agora = new Date();
