@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Cantinho</title>
+    
+    <!-- Fontes do Google (Elegantes e Românticas) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CONFIGURAÇÕES GERAIS --- */
+        :root {
+            --bg-color: #1a0b2e; /* Roxo profundo e sofisticado */
+            --text-color: #ffffff;
+            --accent-color: #d8bfd8; /* Lilás claro suave */
+            --polaroid-bg: #f0f0f0;
+            --polaroid-text: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background: linear-gradient(160deg, #1a0b2e 0%, #2d1b4e 100%); /* Gradiente suave */
+            color: var(--text-color);
+            font-family: 'Lato', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* --- TIPOGRAFIA --- */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        .title-main {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            opacity: 0.8;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+        }
+
+        /* --- HEADER & CONTADOR --- */
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .counter-box {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        .time-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .number {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        /* --- O MURAL (GALERIA) --- */
+        .mural-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding-bottom: 80px;
+        }
+
+        /* Estilo do "Polaroid" */
+        .memory-card {
+            background: var(--polaroid-bg);
+            padding: 15px 15px 40px 15px; /* Padding baixo maior para parecem foto */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            transform: rotate(var(--rotate, 0deg));
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .memory-card:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            z-index: 10;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+
+        .memory-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            filter: sepia(20%); /* Toque retrô suave */
+        }
+
+        .memory-text {
+            color: var(--polaroid-text);
+            margin-top: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .memory-date {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.8rem;
+            font-family: 'Lato', sans-serif;
+            color: #666;
+            text-align: right;
+        }
+
+        /* --- CARTA FINAL --- */
+        .letter-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            margin-top: 20px;
+        }
+
+        .letter-content {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-family: 'Playfair Display', cursive;
+            font-size: 1.5rem;
+        }
+
+        /* Animações sutis */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .title-main { font-size: 2rem; }
+            .mural-container { gap: 30px; }
+            .counter-box { gap: 10px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Nome do casal ou da pessoa -->
+        <h1 class="title-main">Para Meu Amor</h1>
+        <p class="subtitle">Um cantinho só nosso.</p>
+
+        <!-- Contador de tiempo juntos -->
+        <div class="counter-box" id="contador">
+            <div class="time-unit">
+                <span class="number" id="dias">00</span>
+                <span class="label">Dias</span>
+            </div>
+            <div class="time-unit">
+                <span class="number" id="horas">00</span>
+                <span class="label">Horas</span>
+            </div>
+            <div class="time-unit">
+                <span class="number" id="minutos">00</span>
+                <span class="label">Min</span>
+            </div>
+            <div class="time-unit">
+                <span class="number" id="segundos">00</span>
+                <span class="label">Seg</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mural de Fotos/Lembranças -->
+    <section class="mural-container">
+        
+        <!-- Item 1 -->
+        <div class="memory-card" style="--rotate: -2deg;">
+            <!-- Link de imagem aleatória (Unsplash) - Substitua pelo seu link real -->
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a831988b?auto=format&fit=crop&w=500&q=80" alt="Momento 1">
+            <div class="memory-text">A primeira vez que nos vimos</div>
+            <span class="memory-date">15 de Fev</span>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="memory-card" style="--rotate: 3deg;">
+            <img src="https://images.unsplash.com/photo-1529335764857-3f1164d1d24d?auto=format&fit=crop&w=500&q=80" alt="Momento 2">
+            <div class="memory-text">Aquele dia no parque</div>
+            <span class="memory-date">10 de Abr</span>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="memory-card" style="--rotate: -1deg;">
+            <img src="https://images.unsplash.com/photo-1516589178581-6cdd6243273e?auto=format&fit=crop&w=500&q=80" alt="Momento 3">
+            <div class="memory-text">Noites de filme e piping</div>
+            <span class="memory-date">20 de Jul</span>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="memory-card" style="--rotate: 2deg;">
+            <img src="https://images.unsplash.com/photo-1523438885200-03548ab5cf71?auto=format&fit=crop&w=500&q=80" alt="Momento 4">
+            <div class="memory-text">A nossa viagem</div>
+            <span class="memory-date">15 de Ago</span>
+        </div>
+
+    </section>
+
+    <!-- Carta Secreta -->
+    <section class="letter-section">
+        <div class="letter-content">
+            <p>
+                "Eu te amo não só pelos momentos bons, mas por-me tornar alguém melhor ao seu lado. 
+                Este site é só um pedacinho do meu coração na internet, um mural where our memories 
+                live forever."
+            </p>
+            <div class="signature">
+                Sempre seu,<br> [Seu Nome]
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // --- LÓGICA DO CONTADOR ---
+        
+        // Data de início do namoro (Formato: Ano, Mês (0-11), Dia)
+        // Mês no JavaScript começa do 0 (Janeiro) até 11 (Dezembro)
+        // Exemplo: Para 14 de Fevereiro de 2023:
+        const dataNamoro = new Date(2023, 1, 14); 
+
+        function atualizarContador() {
+            const agora = new Date();
+            const diff = agora - dataNamoro; // Diferença em milissegundos
+
+            const segundos = Math.floor(diff / 1000);
+            const minutos = Math.floor(segundos / 60);
+            const horas = Math.floor(minutos / 60);
+            const dias = Math.floor(horas / 24);
+
+            document.getElementById('dias').innerText = dias;
+            document.getElementById('horas').innerText = horas % 24;
+            document.getElementById('minutos').innerText = minutos % 60;
+            document.getElementById('segundos').innerText = segundos % 60;
+        }
+
+        // Atualiza a cada segundo
+        setInterval(atualizarContador, 1000);
+        atualizarContador(); // Chamada inicial
+    </script>
+
+</body>
+</html>
